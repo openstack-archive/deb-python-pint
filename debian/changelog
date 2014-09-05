@@ -1,0 +1,5 @@
+python-pint (0.5.2-1) unstable; urgency=medium
+
+  * Initial release. (Closes: #760586)
+
+ -- Thomas Goirand <zigo@debian.org>  Fri, 05 Sep 2014 23:26:05 +0800

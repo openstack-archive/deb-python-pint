@@ -1,0 +1,9 @@
+Document: python-pint-doc
+Title: Pint Documentation
+Author: N/A
+Abstract: Sphinx documentation for Pint
+Section: Programming/Python
+
+Format: HTML
+Index: /usr/share/doc/python-pint-doc/html/index.html
+Files: /usr/share/doc/python-pint-doc/html/*

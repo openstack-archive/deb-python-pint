@@ -1,0 +1,68 @@
+Source: python-pint
+Section: python
+Priority: optional
+Maintainer: PKG OpenStack <openstack-devel@lists.alioth.debian.org>
+Uploaders: Thomas Goirand <zigo@debian.org>
+Build-Depends: debhelper (>= 9),
+               python-all (>= 2.6.6-3~),
+               python-nose,
+               python-setuptools,
+               python-sphinx,
+               python-yaml,
+               python3-all,
+               python3-nose,
+               python3-setuptools,
+               python3-yaml
+Standards-Version: 3.9.5
+Vcs-Browser: http://anonscm.debian.org/gitweb/?p=openstack/python-pint.git
+Vcs-Git: git://anonscm.debian.org/openstack/python-pint.git
+Homepage: https://github.com/hgrecco/pint
+
+Package: python-pint
+Architecture: all
+Pre-Depends: dpkg (>= 1.15.6~)
+Depends: ${misc:Depends}, ${python:Depends}
+Description: define, operate and manipulate physical quantities - Python 2.x
+ Pint is Python module/package to define, operate and manipulate physical
+ quantities: the product of a numerical value and a unit of measurement. It
+ allows arithmetic operations between them and conversions from and to
+ different units.
+ .
+ It is distributed with a comprehensive list of physical units, prefixes and
+ constants. Due to its modular design, you can extend (or even rewrite!) the
+ complete list without changing the source code.
+ .
+ This package contains the Python 2.x module.
+
+Package: python3-pint
+Architecture: all
+Pre-Depends: dpkg (>= 1.15.6~)
+Depends: ${misc:Depends}, ${python3:Depends}
+Description: define, operate and manipulate physical quantities - Python 3.x
+ Pint is Python module/package to define, operate and manipulate physical
+ quantities: the product of a numerical value and a unit of measurement. It
+ allows arithmetic operations between them and conversions from and to
+ different units.
+ .
+ It is distributed with a comprehensive list of physical units, prefixes and
+ constants. Due to its modular design, you can extend (or even rewrite!) the
+ complete list without changing the source code.
+ .
+ This package contains the Python 3.x module.
+
+Package: python-pint-doc
+Section: doc
+Architecture: all
+Pre-Depends: dpkg (>= 1.15.6~)
+Depends: ${misc:Depends}, ${sphinxdoc:Depends}
+Description: define, operate and manipulate physical quantities - doc
+ Pint is Python module/package to define, operate and manipulate physical
+ quantities: the product of a numerical value and a unit of measurement. It
+ allows arithmetic operations between them and conversions from and to
+ different units.
+ .
+ It is distributed with a comprehensive list of physical units, prefixes and
+ constants. Due to its modular design, you can extend (or even rewrite!) the
+ complete list without changing the source code.
+ .
+ This package contains the documentation.
