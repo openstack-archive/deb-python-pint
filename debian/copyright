@@ -5,7 +5,7 @@ Source: git://github.com/hgrecco/pint.git
 
 Files: debian/*
 Copyright: (c) 2014, Thomas Goirand <zigo@debian.org>
-License: Apache-2
+License: BSD-3-clauses
 
 Files: pint/compat/chainmap.py pint/compat/nullhandler.py
  pint/compat/transformdict.py
