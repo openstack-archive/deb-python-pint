@@ -1,5 +1,6 @@
-python-pint (0.5.2-2) unstable; urgency=medium
+python-pint (0.6-1) unstable; urgency=medium
 
+  * New upstream release.
   * Applied patch from Ubuntu guys (Closes: #774892):
     - Add python-numpy and python3-numpy to Build-Depends
     to enable more tests to run (tests are skipped otherwise).
