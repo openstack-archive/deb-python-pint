@@ -2,6 +2,39 @@ Pint Changelog
 ==============
 
 
+0.6 (2014-11-07)
+----------------
+
+- Fix operations with measurments and user defined units.
+  (Issue #204)
+- Faster conversions through caching and other performance improvements.
+  (Issue #193, thanks MatthieuDartiailh)
+- Better error messages on Quantity.__setitem__.
+  (Issue #191)
+- Fixed abbreviation of fluid_ounce.
+  (Issue #187, thanks hsoft)
+- Defined Angstrom symbol.
+  (Issue #181, thanks JonasOlson)
+- Removed fetching version from git repo as it triggers XCode installation on OSX.
+  (Issue #178, thanks deanishe)
+- Improved context documentation.
+  (Issue #176 and 179, thanks rsking84)
+- Added Chemistry context.
+  (Issue #179, thanks rsking84)
+- Fix help(UnitRegisty)
+  (Issue #168)
+- Optimized "get_dimensionality" and "get_base_name".
+  (Issue #166 and #167, thanks jbmohler)
+- Renamed ureg.parse_units parameter "to_delta" to "as_delta" to make clear.
+  that no conversion happens. Accordingly, the parameter/property
+  "default_to_delta" of UnitRegistry was renamed to "default_as_delta".
+  (Issue #158, thanks dalit)
+- Fixed problem when adding two uncertainties.
+  (thanks dalito)
+- Full support for Offset units (e.g. temperature)
+  (Issue #88, #143, #147 and #161, thanks dalito)
+
+
 0.5.2 (2014-07-31)
 ------------------
 
