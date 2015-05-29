@@ -16,7 +16,7 @@ Build-Depends-Indep: python-nose,
                      python3-nose,
                      python3-numpy,
                      python3-yaml,
-Standards-Version: 3.9.5
+Standards-Version: 3.9.6
 Vcs-Browser: http://anonscm.debian.org/gitweb/?p=openstack/python-pint.git
 Vcs-Git: git://anonscm.debian.org/openstack/python-pint.git
 Homepage: https://github.com/hgrecco/pint

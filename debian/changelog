@@ -6,6 +6,7 @@ python-pint (0.5.2-2) unstable; urgency=medium
   * Fixed debian/watch file.
   * Moved unit test build-depends to build-depends-indep.
   * Added dh-python as build-depends, removed version for python-all.
+  * Standards-Version: 3.9.6 (no change).
 
  -- Thomas Goirand <zigo@debian.org>  Fri, 29 May 2015 09:33:51 +0200
 
