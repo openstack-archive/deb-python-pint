@@ -1,3 +1,13 @@
+python-pint (0.5.2-2) unstable; urgency=medium
+
+  * Applied patch from Ubuntu guys (Closes: #774892):
+    - Add python-numpy and python3-numpy to Build-Depends
+    to enable more tests to run (tests are skipped otherwise).
+  * Fixed debian/watch file.
+  * Moved unit test build-depends to build-depends-indep.
+
+ -- Thomas Goirand <zigo@debian.org>  Fri, 29 May 2015 09:33:51 +0200
+
 python-pint (0.5.2-1) unstable; urgency=medium
 
   * Initial release. (Closes: #760586)
