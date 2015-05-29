@@ -8,6 +8,7 @@ python-pint (0.6-1) unstable; urgency=medium
   * Moved unit test build-depends to build-depends-indep.
   * Added dh-python as build-depends, removed version for python-all.
   * Standards-Version: 3.9.6 (no change).
+  * Using the -v flag when running nosetests.
 
  -- Thomas Goirand <zigo@debian.org>  Fri, 29 May 2015 09:33:51 +0200
 
