@@ -24,7 +24,8 @@ Homepage: https://github.com/hgrecco/pint
 Package: python-pint
 Architecture: all
 Pre-Depends: dpkg (>= 1.15.6~),
-Depends: ${misc:Depends},
+Depends: python-pkg-resources,
+         ${misc:Depends},
          ${python:Depends},
 Description: define, operate and manipulate physical quantities - Python 2.x
  Pint is Python module/package to define, operate and manipulate physical
@@ -41,7 +42,8 @@ Description: define, operate and manipulate physical quantities - Python 2.x
 Package: python3-pint
 Architecture: all
 Pre-Depends: dpkg (>= 1.15.6~),
-Depends: ${misc:Depends},
+Depends: python3-pkg-resources,
+         ${misc:Depends},
          ${python3:Depends},
 Description: define, operate and manipulate physical quantities - Python 3.x
  Pint is Python module/package to define, operate and manipulate physical
