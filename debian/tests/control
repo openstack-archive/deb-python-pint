@@ -1,0 +1,5 @@
+Depends: python-pint
+Test-Command: python -c "import pint; print pint.__version__"
+
+Depends: python3-pint
+Test-Command: python3 -c "import pint; print(pint.__version__)"
