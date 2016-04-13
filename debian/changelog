@@ -1,8 +1,13 @@
 python-pint (0.6-2) UNRELEASED; urgency=medium
 
+  [ Ondřej Nový ]
   * Fixed VCS URLs (https).
 
- -- Ondřej Nový <novy@ondrej.org>  Sun, 28 Feb 2016 15:46:15 +0100
+  [ Corey Bryant ]
+  * d/p/adapt-tests-to-numpy-default-casting.patch: Adapt tests to changes in
+    NumPy 1.10 default casting rule.
+
+ -- Corey Bryant <corey.bryant@canonical.com>  Wed, 13 Apr 2016 08:22:12 -0400
 
 python-pint (0.6-1) unstable; urgency=medium
 

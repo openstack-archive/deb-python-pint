@@ -1,2 +1,3 @@
+adapt-tests-to-numpy-default-casting.patch
 no-intersphinx.patch
 removes-privacy-breach-in-doc.patch
