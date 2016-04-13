@@ -3,14 +3,17 @@ Upstream-Name: Pint
 Upstream-Contact: Hernan Grecco <hernan.grecco@gmail.com>
 Source: git://github.com/hgrecco/pint.git
 
+Files: *
+Copyright: (c) 2012-2016, See AUTHORS file
+License: BSD-3-clauses
+
 Files: debian/*
 Copyright: (c) 2014, Thomas Goirand <zigo@debian.org>
 License: BSD-3-clauses
 
 Files: pint/compat/chainmap.py pint/compat/nullhandler.py
- pint/compat/transformdict.py
 Copyright: (c) 2013, the Python Software Foundation ("PSF")
-License: PSF License
+License: Python
 
 Files: pint/compat/lrucache.py
 Copyright: (c) 2004, Raymond Hettinger
@@ -18,32 +21,7 @@ License: Expat
 
 Files: docs/_themes/*
 Copyright: (c) 2010 by Armin Ronacher
-License: Flask Design License
-
-Files: *
-Copyright: (c) 2012, Hernan E. Grecco <hernan.grecco@gmail.com>
-           (c) Alexander Böhn <fish2000@gmail.com>
-           (c) Brend Wanders <b.wanders@utwente.nl>
-           (c) choloepus
-           (c) coutinho <coutinho@esrf.fr>
-           (c) Daniel Sokolowski <daniel.sokolowski@danols.com>
-           (c) Dave Brooks <dave@bcs.co.nz>
-           (c) Eduard Bopp <eduard.bopp@aepsil0n.de>
-           (c) Felix Hummel <felix@felixhummel.de>
-           (c) Giel van Schijndel <me@mortis.eu>
-           (c) James Rowe <jnrowe@gmail.com>
-           (c) Jim Turner <jturner314@gmail.com>
-           (c) Joel B. Mohler <joel@kiwistrawberry.us>
-           (c) John David Reaver <jdreaver@adlerhorst.com>
-           (c) Kenneth D. Mankoff <mankoff@gmail.com>
-           (c) Luke Campbell <luke.s.campbell@gmail.com>
-           (c) Nate Bogdanowicz <natezb@gmail.com>
-           (c) Peter Grayson <jpgrayson@gmail.com>
-           (c) Richard Barnes <rbarnes@umn.edu>
-           (c) Sundar Raman <cybertoast@gmail.com>
-           (c) Tiago Coutinho <coutinho@esrf.fr>
-           (c) Tom Ritchford <tom@swirly.com>
-License: BSD-3-clauses
+License: Flask-Design
 
 License: BSD-3-clauses
  Redistribution and use in source and binary forms of the software as well as
@@ -74,7 +52,7 @@ License: BSD-3-clauses
  SOFTWARE AND DOCUMENTATION, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH
  DAMAGE.
 
-License: PSF License
+License: Python
  1. This LICENSE AGREEMENT is between the Python Software Foundation ("PSF"),
  and the Individual or Organization ("Licensee") accessing and otherwise
  using this software ("Python") in source or binary form and its associated
@@ -136,7 +114,7 @@ License: Expat
  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  SOFTWARE.
 
-License: Flask Design License
+License: Flask-Design
  Redistribution and use in source and binary forms of the theme, with or
  without modification, are permitted provided that the following conditions are
  met:
