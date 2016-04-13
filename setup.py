@@ -29,7 +29,7 @@ __doc__ = long_description
 
 setup(
     name='Pint',
-    version='0.6',
+    version='0.7.2',
     description='Physical quantities module',
     long_description=long_description,
     keywords='physical quantities unit conversion science',
@@ -44,11 +44,6 @@ setup(
                  'constants_en.txt']
       },
     include_package_data=True,
-    entry_points={
-         'zest.releaser.releaser.after_checkout': [
-            'pyroma = pint:_run_pyroma',
-         ],
-      },
     license='BSD',
     classifiers=[
         'Development Status :: 4 - Beta',
@@ -67,4 +62,6 @@ setup(
         'Programming Language :: Python :: 3.1',
         'Programming Language :: Python :: 3.2',
         'Programming Language :: Python :: 3.3',
+        'Programming Language :: Python :: 3.4',
+        'Programming Language :: Python :: 3.5',
     ])

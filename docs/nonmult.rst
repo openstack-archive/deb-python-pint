@@ -5,10 +5,10 @@ Temperature conversion
 ======================
 
 Unlike meters and seconds, the temperature units fahrenheits and
-celsius are non-multiplicative units. These temperature units are 
+celsius are non-multiplicative units. These temperature units are
 expressed in a system with a reference point, and relations between
 temperature units include not only a scaling factor but also an offset.
-Pint supports these type of units and conversions between them. 
+Pint supports these type of units and conversions between them.
 The default definition file includes fahrenheits, celsius,
 kelvin and rankine abbreviated as degF, degC, degK, and degR.
 
@@ -18,6 +18,7 @@ For example, to convert from celsius to fahrenheit:
 
    from pint import UnitRegistry
    ureg = UnitRegistry()
+   ureg.default_format = '.3f'
    Q_ = ureg.Quantity
 
 .. doctest::
@@ -39,7 +40,7 @@ or to other kelvin or rankine:
     537.39 degR
 
 Additionally, for every non-multiplicative temperature unit
-in the registry, there is also a *delta* counterpart to specify 
+in the registry, there is also a *delta* counterpart to specify
 differences. Absolute units have no *delta* counterpart.
 For example, the change in celsius is equal to the change
 in kelvin, but not in fahrenheit (as the scaling factor
@@ -53,7 +54,6 @@ is different).
    >>> print(increase.to(ureg.delta_degF))
    22.14 delta_degF
 
-..
 Subtraction of two temperatures given in offset units yields a *delta* unit:
 
 .. doctest::
@@ -61,7 +61,7 @@ Subtraction of two temperatures given in offset units yields a *delta* unit:
     >>> Q_(25.4, ureg.degC) - Q_(10., ureg.degC)
     <Quantity(15.4, 'delta_degC')>
 
-You can add or subtract a quantity with *delta* unit and a quantity with 
+You can add or subtract a quantity with *delta* unit and a quantity with
 offset unit:
 
 .. doctest::
@@ -79,9 +79,9 @@ If you want to add a quantity with absolute unit to one with offset unit, like h
     >>> Q_(10., ureg.degC) + heating_rate * Q_(30, ureg.min)
     Traceback (most recent call last):
             ...
-    pint.unit.OffsetUnitCalculusError: Ambiguous operation with offset unit (degC, kelvin).
+    pint.errors.OffsetUnitCalculusError: Ambiguous operation with offset unit (degC, kelvin).
 
-you have to avoid the ambiguity by either converting the offset unit to the 
+you have to avoid the ambiguity by either converting the offset unit to the
 absolute unit before addition
 
 .. doctest::
@@ -96,10 +96,10 @@ or convert the absolute unit to a *delta* unit:
     >>> Q_(10., ureg.degC) + heating_rate.to('delta_degC/min') * Q_(30, ureg.min)
     <Quantity(25.0, 'degC')>
 
-In contrast to subtraction, the addition of quantities with offset units 
+In contrast to subtraction, the addition of quantities with offset units
 is ambiguous, e.g. for *10 degC + 100 degC* two different result are reasonable
 depending on the context, *110 degC* or *383.15 °C (= 283.15 K + 373.15 K)*.
-Because of this ambiguity pint raises an error for the addition of two 
+Because of this ambiguity pint raises an error for the addition of two
 quantities with offset units (since pint-0.6).
 
 Quantities with *delta* units are multiplicative:
@@ -110,7 +110,7 @@ Quantities with *delta* units are multiplicative:
     >>> print(speed.to('delta_degC/second'))
     1.0 delta_degC / second
 
-However, multiplication, division and exponentiation of quantities with 
+However, multiplication, division and exponentiation of quantities with
 offset units is problematic just like addition. Pint (since version 0.6)
 will by default raise an error when a quantity with offset unit is used in
 these operations. Due to this quantities with offset units cannot be created
@@ -119,10 +119,11 @@ to be explicitly created:
 
 .. doctest::
 
+    >>> ureg = UnitRegistry()
     >>> home = 25.4 * ureg.degC
     Traceback (most recent call last):
         ...
-    pint.unit.OffsetUnitCalculusError: Ambiguous operation with offset unit (degC).
+    pint.errors.OffsetUnitCalculusError: Ambiguous operation with offset unit (degC).
     >>> Q_(25.4, ureg.degC)
     <Quantity(25.4, 'degC')>
 
@@ -139,11 +140,11 @@ to true. In this mode, pint behaves differently:
     >>> T = 25.4 * ureg.degC
     >>> T
     <Quantity(25.4, 'degC')>
-    
-* Before all other multiplications, all divisions and in case of 
-  exponentiation [#f1]_ involving quantities with offset-units, pint 
-  will convert the quantities with offset units automatically to the 
-  corresponding base unit before performing the operation. 
+
+* Before all other multiplications, all divisions and in case of
+  exponentiation [#f1]_ involving quantities with offset-units, pint
+  will convert the quantities with offset units automatically to the
+  corresponding base unit before performing the operation.
 
     >>> 1/T
     <Quantity(0.00334952269302, '1 / kelvin')>
@@ -156,7 +157,7 @@ You can change the behaviour at any time:
     >>> 1/T
     Traceback (most recent call last):
         ...
-    pint.unit.OffsetUnitCalculusError: Ambiguous operation with offset unit (degC).
+    pint.errors.OffsetUnitCalculusError: Ambiguous operation with offset unit (degC).
 
 The parser knows about *delta* units and uses them when a temperature unit
 is found in a multiplicative context. For example, here:

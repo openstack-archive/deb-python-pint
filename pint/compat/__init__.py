@@ -12,18 +12,26 @@
 from __future__ import division, unicode_literals, print_function, absolute_import
 
 import sys
-import tokenize
 
+from io import BytesIO
 from numbers import Number
 from decimal import Decimal
 
+from . import tokenize
+
+ENCODING_TOKEN = tokenize.ENCODING
 
 PYTHON3 = sys.version >= '3'
 
+def tokenizer(input_string):
+    for tokinfo in tokenize.tokenize(BytesIO(input_string.encode('utf-8')).readline):
+        if tokinfo.type == ENCODING_TOKEN:
+            continue
+        yield tokinfo
+
+
 if PYTHON3:
-    from io import BytesIO
     string_types = str
-    tokenizer = lambda input_string: tokenize.tokenize(BytesIO(input_string.encode('utf-8')).readline)
 
     def u(x):
         return x
@@ -32,9 +40,7 @@ if PYTHON3:
 
     long_type = int
 else:
-    from StringIO import StringIO
     string_types = basestring
-    tokenizer = lambda input_string: tokenize.generate_tokens(StringIO(input_string).readline)
 
     import codecs
 
@@ -60,11 +66,6 @@ except ImportError:
     from .chainmap import ChainMap
 
 try:
-    from collections import TransformDict
-except ImportError:
-    from .transformdict import TransformDict
-
-try:
     from functools import lru_cache
 except ImportError:
     from .lrucache import lru_cache
@@ -73,6 +74,11 @@ try:
     from logging import NullHandler
 except ImportError:
     from .nullhandler import NullHandler
+
+try:
+    from itertools import zip_longest
+except ImportError:
+    from itertools import izip_longest as zip_longest
 
 try:
     import numpy as np

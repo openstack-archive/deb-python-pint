@@ -2,14 +2,18 @@
 
 from __future__ import division, unicode_literals, print_function, absolute_import
 
-import os
+import doctest
 import logging
+import os
+import sys
+
 from contextlib import contextmanager
 
 from pint.compat import ndarray, unittest, np
 
 from pint import logger, UnitRegistry
 from pint.quantity import _Quantity
+from pint.testsuite.helpers import PintOutputChecker
 from logging.handlers import BufferingHandler
 
 
@@ -71,18 +75,19 @@ class QuantityTestCase(BaseTestCase):
     def setUpClass(cls):
         cls.ureg = UnitRegistry(force_ndarray=cls.FORCE_NDARRAY)
         cls.Q_ = cls.ureg.Quantity
+        cls.U_ = cls.ureg.Unit
 
     def _get_comparable_magnitudes(self, first, second, msg):
         if isinstance(first, _Quantity) and isinstance(second, _Quantity):
             second = second.to(first)
-            self.assertEqual(first.units, second.units, msg=msg + 'Units are not equal.')
+            self.assertEqual(first.units, second.units, msg=msg + ' Units are not equal.')
             m1, m2 = first.magnitude, second.magnitude
         elif isinstance(first, _Quantity):
-            self.assertTrue(first.dimensionless, msg=msg + 'The first is not dimensionless.')
+            self.assertTrue(first.dimensionless, msg=msg + ' The first is not dimensionless.')
             first = first.to('')
             m1, m2 = first.magnitude, second
         elif isinstance(second, _Quantity):
-            self.assertTrue(second.dimensionless, msg=msg + 'The second is not dimensionless.')
+            self.assertTrue(second.dimensionless, msg=msg + ' The second is not dimensionless.')
             second = second.to('')
             m1, m2 = first, second.magnitude
         else:
@@ -110,13 +115,23 @@ class QuantityTestCase(BaseTestCase):
         if isinstance(m1, ndarray) or isinstance(m2, ndarray):
             np.testing.assert_allclose(m1, m2, rtol=rtol, atol=atol, err_msg=msg)
         else:
-            self.assertLessEqual(abs(m1 - m2), atol + rtol * abs(m2))
+            self.assertLessEqual(abs(m1 - m2), atol + rtol * abs(m2), msg=msg)
 
 
 def testsuite():
     """A testsuite that has all the pint tests.
     """
-    return unittest.TestLoader().discover(os.path.dirname(__file__))
+    suite = unittest.TestLoader().discover(os.path.dirname(__file__))
+    from pint.compat import HAS_NUMPY, HAS_UNCERTAINTIES
+
+    # TESTING THE DOCUMENTATION requires pyyaml, serialize, numpy and uncertainties
+    if HAS_NUMPY and HAS_UNCERTAINTIES:
+        try:
+            import yaml, serialize
+            add_docs(suite)
+        except ImportError:
+            pass
+    return suite
 
 
 def main():
@@ -135,4 +150,42 @@ def run():
     """
     test_runner = unittest.TextTestRunner()
     return test_runner.run(testsuite())
+
+
+
+import math
+
+_GLOBS = {
+    'wrapping.rst': {
+        'pendulum_period': lambda length: 2*math.pi*math.sqrt(length/9.806650),
+        'pendulum_period2': lambda length, swing_amplitude: 1.,
+        'pendulum_period_maxspeed': lambda length, swing_amplitude: (1., 2.),
+        'pendulum_period_error': lambda length: (1., False),
+    }
+}
+
+
+def add_docs(suite):
+    """Add docs to suite
+
+    :type suite: unittest.TestSuite
+    """
+    docpath = os.path.join(os.path.dirname(__file__), '..', '..', 'docs')
+    docpath = os.path.abspath(docpath)
+    if os.path.exists(docpath):
+        checker = PintOutputChecker()
+        for name in (name for name in os.listdir(docpath) if name.endswith('.rst')):
+            file = os.path.join(docpath, name)
+            suite.addTest(doctest.DocFileSuite(file,
+                                               module_relative=False,
+                                               checker=checker,
+                                               globs=_GLOBS.get(name, None)))
+
+
+def test_docs():
+    suite = unittest.TestSuite()
+    add_docs(suite)
+    runner = unittest.TextTestRunner()
+    return runner.run(suite)
+
 
