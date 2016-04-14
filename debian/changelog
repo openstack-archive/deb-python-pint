@@ -11,6 +11,7 @@ python-pint (0.7.2-1) unstable; urgency=medium
   * Added simple Debian tests.
   * Install AUTHORS file.
   * Added skip_not_working_tests.patch
+  * Removed logo-full.jpg duplicity in docs.
 
  -- Ondřej Nový <novy@ondrej.org>  Thu, 14 Apr 2016 20:28:26 +0200
 
