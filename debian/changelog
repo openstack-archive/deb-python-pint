@@ -1,6 +1,6 @@
-python-pint (0.7.2-1) UNRELEASED; urgency=medium
+python-pint (0.7.2-1) unstable; urgency=medium
 
-  [ Ondřej Nový ]
+  * Team upload.
   * New upstream release (Closes: #820195).
   * Fixed VCS URLs (https).
   * Standards-Version is 3.9.8 now (no change).
@@ -10,7 +10,7 @@ python-pint (0.7.2-1) UNRELEASED; urgency=medium
   * Added python(3)-pkg-resources dependency.
   * Added simple Debian tests.
 
- -- Corey Bryant <corey.bryant@canonical.com>  Wed, 13 Apr 2016 08:22:12 -0400
+ -- Ondřej Nový <novy@ondrej.org>  Thu, 14 Apr 2016 20:28:26 +0200
 
 python-pint (0.6-1) unstable; urgency=medium
 
