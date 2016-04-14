@@ -4,7 +4,9 @@ python-pint (0.7.2-1) UNRELEASED; urgency=medium
   * New upstream release (Closes: #820195).
   * Fixed VCS URLs (https).
   * Standards-Version is 3.9.8 now (no change).
-  * d/copyright: Cleanup and fixed for new upstream release.
+  * d/copyright
+    - Cleanup and fixed for new upstream release.
+    - Added myself for Debian part
   * Added python(3)-pkg-resources dependency.
   * Added simple Debian tests.
 
