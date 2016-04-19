@@ -1,5 +1,5 @@
 Depends: python-pint
-Test-Command: python -c "import pint; print pint.__version__"
+Test-Command: cd "$ADTTMP" ; python -c "import pint; print pint.__version__"
 
 Depends: python3-pint
-Test-Command: python3 -c "import pint; print(pint.__version__)"
+Test-Command: cd "$ADTTMP" ; python3 -c "import pint; print(pint.__version__)"
