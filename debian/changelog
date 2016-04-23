@@ -1,5 +1,6 @@
 python-pint (0.7.2-2) UNRELEASED; urgency=medium
 
+  * Added myself as uploader
   * Change directory to $ADTTMP before running Debian tests
   * Fix copyright year in documentation to make build reproducible
   * Fix unit tests failing on 32-bit arch
