@@ -1,0 +1,17 @@
+Description: Fix unit tests failing on 32-bit arch
+Author: Ondřej Nový <novy@ondrej.org>
+Forwarded: https://github.com/hgrecco/pint/pull/368
+Last-Update: 2016-04-15
+
+--- a/pint/testsuite/test_issues.py
++++ b/pint/testsuite/test_issues.py
+@@ -499,7 +499,8 @@
+         self.assertEqual(np.float16(a/b), 1000.)
+         self.assertEqual(np.float32(a/b), 1000.)
+         self.assertEqual(np.float64(a/b), 1000.)
+-        self.assertEqual(np.float128(a/b), 1000.)
++        if "float128" in dir(np):
++            self.assertEqual(np.float128(a/b), 1000.)
+ 
+     def test_issue252(self):
+         ur = UnitRegistry()
