@@ -1,3 +1,4 @@
 no-intersphinx.patch
 removes-privacy-breach-in-doc.patch
 skip_not_working_tests.patch
+sphinx_reproducible_build.patch
