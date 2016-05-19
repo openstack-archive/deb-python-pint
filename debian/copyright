@@ -1,7 +1,7 @@
 Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: Pint
 Upstream-Contact: Hernan Grecco <hernan.grecco@gmail.com>
-Source: git://github.com/hgrecco/pint.git
+Source: https://github.com/hgrecco/pint
 
 Files: *
 Copyright: (c) 2012-2016, See AUTHORS file

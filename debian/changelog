@@ -1,6 +1,7 @@
 python-pint (0.7.2-3) UNRELEASED; urgency=medium
 
   * d/rules: Changed UPSTREAM_GIT protocol to https
+  * d/copyright: Changed source URL to https protocol
 
  -- Ondřej Nový <novy@ondrej.org>  Thu, 19 May 2016 21:28:22 +0200
 
