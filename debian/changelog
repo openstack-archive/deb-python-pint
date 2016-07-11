@@ -3,6 +3,7 @@ python-pint (0.7.2-3) UNRELEASED; urgency=medium
   * d/rules: Changed UPSTREAM_GIT protocol to https
   * d/copyright: Changed source URL to https protocol
   * d/{control,copyright}: Use my @debian.org email address
+  * Use LooseVersion for NumPy version comparing (Closes: #830348)
 
  -- Ondřej Nový <novy@ondrej.org>  Thu, 19 May 2016 21:28:22 +0200
 
