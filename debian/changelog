@@ -1,3 +1,10 @@
+python-pint (0.7.2-4) UNRELEASED; urgency=medium
+
+  * d/s/options: extend-diff-ignore of .gitreview
+  * d/control: Using OpenStack's Gerrit as VCS URLs.
+
+ -- Ondřej Nový <onovy@debian.org>  Sat, 24 Sep 2016 12:50:38 +0200
+
 python-pint (0.7.2-3) unstable; urgency=medium
 
   * d/rules: Changed UPSTREAM_GIT protocol to https
